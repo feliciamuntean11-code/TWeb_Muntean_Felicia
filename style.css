@@ -1,0 +1,694 @@
+
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:100px;
+}
+
+/* meniu la stânga */
+.menu{
+  display:flex;
+  gap:80px;
+  align-items:center;
+  flex-wrap:nowrap;
+  white-space:nowrap;
+}
+.menu a{
+   font-family: 'Poppins', sans-serif;
+}
+
+/* logo la mijloc */
+.logo{
+  white-space:nowrap;
+  font-weight:800;
+}
+
+/* dreapta: search + cart */
+.right{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  white-space:nowrap;
+}
+
+/* search într-un rând */
+.search{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.search input{
+  width:220px;      /* IMPORTANT: dacă e prea mare, împinge pe rând nou */
+  padding:6px 10px;
+}
+
+.search button{
+  padding:6px 10px;
+  cursor:pointer;
+}
+/* HERO SECTION */
+.hero-section{
+    background: #d8a33c;   /* galben */
+    padding: 10px 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* container interior */
+.hero-content{
+    max-width: 1200px;
+    margin: auto;;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+/* partea stânga */
+.hero-left{
+    flex: 1;
+    color: white;
+}
+
+.hero-tag{
+    background: #ef4444;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.hero-left h1{
+    font-size: 52px;
+    margin: 20px 0 10px;
+    line-height: 1.1;
+}
+
+.hero-left p{
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.hero-btn{
+    background: #ef4444;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.hero-btn:hover{
+    background: #dc2626;
+}
+
+/* partea dreapta */
+.hero-right{
+    flex: 1;
+    text-align: right;
+}
+
+.hero-right img{
+    max-width: 500px;
+    width: 100%;
+}
+/* ===== DEAL OF THE DAY ===== */
+.deal{
+  margin-top: 26px;
+}
+
+.deal-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 20px;
+}
+
+.deal-left h2{
+  margin:0;
+  font-size: 18px;
+  letter-spacing: .5px;
+}
+.deal-left p{
+  margin: 6px 0 0;
+  color: #6b7280;
+  font-size: 12px;
+  max-width: 520px;
+  line-height: 1.5;
+}
+
+/* timer */
+.deal-timer{
+  display:flex;
+  align-items:flex-start;
+  gap: 12px;
+  font-weight: 900;
+}
+.t{
+  text-align:center;
+  min-width: 54px;
+}
+.num{
+  font-size: 26px;
+  letter-spacing: 1px;
+}
+.lbl{
+  font-size: 11px;
+  color:#6b7280;
+  font-weight: 700;
+  margin-top: 4px;
+}
+.sep{
+  font-size: 26px;
+  color:#111827;
+  margin-top: 2px;
+}
+
+/* row cards */
+.deal-row{
+  margin-top: 14px;
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.deal-card{
+  background:#fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 10px 22px rgba(15,23,42,.06);
+}
+
+.deal-img{
+  background:#f3f4f6;
+  border-radius: 10px;
+  height: 150px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.deal-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(.92);
+}
+
+/* butoane overlay (ca în poză) */
+.deal-btn{
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-70%);
+  background: #ef4444;
+  color:#fff;
+  text-decoration:none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  opacity: 0;
+  transition: .25s;
+}
+
+.deal-quick{
+  position:absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  background: #111827;
+  color:#fff;
+  text-decoration:none;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  opacity: 0;
+  transition: .25s;
+}
+
+/* efect vizual (cerință) */
+.deal-img:hover .deal-btn,
+.deal-img:hover .deal-quick{
+  opacity: 1;
+}
+
+.deal-meta{
+  margin-top: 8px;
+}
+
+.rate{
+  display:inline-block;
+  background: rgba(34,197,94,.14);
+  border: 1px solid rgba(34,197,94,.30);
+  color: #166534;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.deal-name{
+  margin-top: 8px;
+  font-weight: 900;
+  font-size: 13px;
+}
+
+.deal-sub{
+  margin-top: 2px;
+  color:#6b7280;
+  font-size: 11px;
+}
+
+.deal-price{
+  margin-top: 8px;
+  text-align:right;
+  font-weight: 900;
+  font-size: 14px;
+}
+
+/* responsive */
+@media (max-width: 1050px){
+  .deal-row{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px){
+  .deal-head{ flex-direction: column; }
+  .deal-row{ grid-template-columns: 1fr; }
+}
+/* ===== FOOTER gri (ca în exemplu) ===== */
+.site-footer{
+  margin-top: 28px;
+  background: #3f3f3f;          /* sur (gri închis) */
+  color: #ffffff;
+  padding: 34px 0 16px;
+}
+
+.footer-grid{
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr 1.2fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.footer-logo{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.logo-ic{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+.logo-text{
+  font-size: 22px;
+  letter-spacing: .2px;
+}
+.logo-text b{ color: #fbbf24; }  /* mic accent cald */
+
+.footer-desc{
+  margin: 0;
+  margin-top: 8px;
+  color: rgba(255,255,255,.86);
+  line-height: 1.65;
+  font-size: 14px;
+  max-width: 520px;
+}
+
+.footer-social{
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+.footer-social a{
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  text-decoration: none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 900;
+  border: 1px solid rgba(255,255,255,.14);
+}
+.footer-social a:hover{
+  background: rgba(255,255,255,.18);
+}
+
+/* coloane */
+.footer-col h4{
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+.footer-col ul{
+  margin: 0;
+  padding-left: 18px;
+}
+.footer-col li{
+  margin: 10px 0;
+}
+.footer-col a{
+  color: rgba(255,255,255,.86);
+  text-decoration: none;
+}
+.footer-col a:hover{
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+.footer-contact{
+  color: rgba(255,255,255,.86);
+  line-height: 1.75;
+  font-size: 14px;
+}
+
+/* plăți */
+.footer-pay{
+  margin-top: 16px;
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.pay-pill{
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.14);
+  font-weight: 800;
+  font-size: 12px;
+}
+
+/* bottom bar */
+.footer-bottom{
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.14);
+  display:flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: rgba(255,255,255,.75);
+  font-size: 12px;
+}
+
+.back-top{
+  color: rgba(255,255,255,.85);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.08);
+}
+.back-top:hover{
+  background: rgba(255,255,255,.14);
+}
+
+/* responsive */
+@media (max-width: 1050px){
+  .footer-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px){
+  .footer-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* titlu pagină */
+.page-title{
+  margin: 18px 0 12px;
+}
+
+/* tabel produse */
+.product-table{
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.product-table th{
+  text-align: left;
+  background: #f3f4f6;
+  padding: 12px;
+  font-size: 14px;
+}
+
+.product-table td{
+  padding: 12px;
+  border-top: 1px solid #e5e7eb;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+/* coloana produs (imagine + nume) */
+.p-name{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.p-img{
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+}
+
+/* buton detalii */
+.btn{
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 800;
+  background: #ef4444;
+  color: #fff;
+}
+
+.btn:hover{
+  background: #dc2626;
+}
+
+/* link activ în meniu (dacă îl folosești) */
+.menu a.active{
+  font-weight: 900;
+  text-decoration: underline;
+}
+
+/* Pagina produs */
+.product-page{
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    align-items: flex-start;
+}
+
+/* imagine stânga */
+.product-left img{
+    width: 350px;
+    border-radius: 15px;
+    border: 1px solid #eee;
+}
+
+/* partea dreapta */
+.product-right{
+    max-width: 500px;
+}
+
+.product-right h2{
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.rating{
+    color: #f59e0b;
+    margin-bottom: 10px;
+}
+
+.price{
+    font-size: 26px;
+    font-weight: bold;
+    color: #ef4444;
+    margin-bottom: 15px;
+}
+
+.description{
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.qty input{
+    width: 60px;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.add-btn{
+    margin-top: 15px;
+    padding: 12px 20px;
+    background: #16a34a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.add-btn:hover{
+    background: #15803d;
+}
+
+.extra-info{
+    margin-top: 20px;
+    color: #555;
+    font-size: 14px;
+}
+/* ===== ABOUT PAGE ===== */
+.about-page{ padding: 18px 0 30px; }
+
+.about-hero{
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 18px;
+  margin-top: 14px;
+}
+
+.about-hero-left h1{
+  margin: 0 0 10px;
+  font-size: 34px;
+}
+.about-hero-left p{
+  color:#374151;
+  line-height: 1.7;
+  margin: 0 0 14px;
+}
+
+.about-badges{ display:flex; gap:10px; flex-wrap: wrap; margin-bottom: 14px; }
+.badge{
+  background: rgba(34,197,94,.14);
+  border: 1px solid rgba(34,197,94,.30);
+  color: #166534;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.btn-green{
+  display:inline-block;
+  background: #16a34a;
+  color:#fff;
+  text-decoration:none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 900;
+}
+.btn-green:hover{ background:#15803d; }
+
+.about-hero-right{
+  display: grid;
+  gap: 12px;
+}
+.about-card{
+  background:#fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 10px 22px rgba(15,23,42,.06);
+}
+.about-card h3{ margin:0 0 6px; }
+.about-card p{ margin:0; color:#374151; line-height:1.6; }
+
+/* stats */
+.about-stats{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.stat{
+  background:#fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 14px;
+  text-align:center;
+}
+.stat-num{ font-size: 22px; font-weight: 900; }
+.stat-txt{ color:#6b7280; font-size: 12px; margin-top: 4px; font-weight: 700; }
+
+/* values */
+.about-values{ margin-top: 22px; }
+.about-values h2{ margin:0 0 12px; }
+.value-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.value-card{
+  background:#fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 14px;
+}
+.value-card h4{ margin:0 0 6px; }
+.value-card p{ margin:0; color:#374151; line-height:1.6; }
+
+/* team */
+.about-team{ margin-top: 22px; }
+.about-team h2{ margin:0 0 12px; }
+.team-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.team-card{
+  background:#fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 14px;
+  display:flex;
+  gap: 12px;
+  align-items:center;
+}
+.avatar{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: rgba(14,165,233,.12);
+  border: 1px solid rgba(14,165,233,.25);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 900;
+}
+
+/* responsive */
+@media (max-width: 900px){
+  .about-hero{ grid-template-columns: 1fr; }
+  .about-stats{ grid-template-columns: repeat(2, 1fr); }
+  .value-grid{ grid-template-columns: repeat(2, 1fr); }
+  .team-grid{ grid-template-columns: 1fr; }
+}
