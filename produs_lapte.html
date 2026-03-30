@@ -1,66 +1,47 @@
+<!-- produs_lapte.html -->
 <!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
-    <title>Lapte 1L - Retail Market</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lapte 1L - GroceryMarket</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="topbar">
     <div class="menu">
         <a href="index.html">Acasă</a>
         <a href="despre.html">Despre noi</a>
         <a href="produse.html">Shop</a>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html">Contactează-ne</a>
     </div>
-
-    <div class="logo">🛒 Retail <span>Market</span></div>
-
+    <div class="logo">🛒 Grocery <span>Market</span></div>
     <div class="right">
-        <div class="search">
-            <input type="text" placeholder="Caută produs...">
-            <button>🔍</button>
-        </div>
-        <div class="cart">🧺 CART (02)</div>
+        <div class="search"><input type="text" id="searchInput" placeholder="Caută produs..."><button id="searchBtn">🔍</button></div>
+        <div class="cart" id="cartIcon">🧺 Coș (<span id="cartCount">0</span>)</div>
     </div>
 </div>
 
-<!-- PRODUS -->
+<div id="toastContainer"></div>
+<div id="cartModal" class="modal"><div class="modal-content"><h3>🛒 Coșul tău</h3><div id="cartItemsList"></div><p><strong>Total: <span id="modalTotal">0</span> MDL</strong></p><button class="close-modal" id="closeCartModal">Închide</button></div></div>
+
 <div class="container product-page">
-
-    <div class="product-left">
-        <img src="https://linella.md/public/products/a1567864f95efc28ebc865436eabddc4.webp" alt="Lapte 1L">
-    </div>
-
+    <div class="product-left"><img src="https://linella.md/public/products/a1567864f95efc28ebc865436eabddc4.webp" alt="Lapte 1L"></div>
     <div class="product-right">
         <h2>Lapte 1L</h2>
-
         <div class="rating">⭐ 4.8 (125 recenzii)</div>
-
         <div class="price">15 MDL</div>
-
-        <p class="description">
-            Lapte proaspăt 3.2% grăsime, ambalaj 1 litru.
-            Ideal pentru mic dejun, cafea sau gătit.
-        </p>
-
-        <div class="qty">
-            Cantitate:
-            <input type="number" value="1" min="1">
-        </div>
-
-        <button class="add-btn">Adaugă în coș</button>
-
-        <div class="extra-info">
-            ✔ Livrare în 24h<br>
-            ✔ Produs proaspăt<br>
-            ✔ Plată la livrare sau online
-        </div>
+        <p class="description">Lapte proaspăt 3.2% grăsime, ambalaj 1 litru. Ideal pentru mic dejun, cafea sau gătit.</p>
+        <div class="qty">Cantitate: <input type="number" id="productQty" value="1" min="1"></div>
+        <button class="add-btn" id="addToCartBtn">Adaugă în coș</button>
+        <div class="extra-info">✔ Livrare în 24h<br>✔ Produs proaspăt<br>✔ Plată la livrare sau online</div>
     </div>
-
 </div>
 
+<footer class="site-footer"><div class="container footer-grid"><div class="footer-brand"><div class="footer-logo"><span class="logo-ic">🛒</span><span class="logo-text"><b>Grocery</b>Market</span></div><p class="footer-desc">Magazin online cu produse de calitate.</p><div class="footer-social"><a href="#">f</a><a href="#">⌁</a></div></div><div class="footer-col"><h4>Link-uri utile</h4><ul><li><a href="despre.html">Despre noi</a></li><li><a href="produse.html">Produse</a></li></ul></div><div class="footer-col"><h4>Detalii</h4><ul><li><a href="#">Plată și livrare</a></li></ul></div><div class="footer-col"><h4>Contacte</h4><div class="footer-contact"><div><b>Telefon:</b> +373 68 322 272</div><div><b>Email:</b> info@grocerymarket.md</div></div></div></div><div class="container footer-bottom"><span>© 2026 GroceryMarket.</span><a href="#" class="back-top">↑ Sus</a></div></footer>
+
+<script src="script.js"></script>
 </body>
 </html>
