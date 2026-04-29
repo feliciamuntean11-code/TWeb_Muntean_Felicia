@@ -1,29 +1,151 @@
 <!DOCTYPE html>
-<html>
+<html lang="ro">
 <head>
-    <title>Contact</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - GroceryMarket</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        .error-message {
+            color: #dc2626;
+            font-size: 12px;
+            margin-top: 4px;
+            display: block;
+        }
+        .success-message {
+            background: #16a34a;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #c2410c;
+            box-shadow: 0 0 0 3px rgba(194,65,12,0.1);
+        }
+        .btn-submit {
+            background: #c2410c;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-submit:hover {
+            background: #9a3412;
+        }
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
 
-<table border="1" width="100%">
-<tr>
-<td colspan="2" align="center">
-    <h1>Contactează-ne</h1>
-</td>
-</tr>
+<div class="topbar">
+    <div class="menu">
+        <a href="index.html">Acasă</a>
+        <a href="despre.html">Despre noi</a>
+        <a href="produse.html">Shop</a>
+        <a href="contact.html" class="active">Contactează-ne</a>
+    </div>
+    <div class="logo">🛒 Grocery <span>Market</span></div>
+    <div class="right">
+        <div class="search">
+            <input type="text" id="searchInput" placeholder="Caută produs...">
+            <button id="searchBtn">🔍</button>
+        </div>
+        <div class="cart" id="cartIcon">🧺 Coș (<span id="cartCount">0</span>)</div>
+    </div>
+</div>
 
-<tr>
-<td width="20%">
-    <a href="index.html">Acasă</a><br><br>
-    <a href="produse.html">Produse</a>
-</td>
+<div id="toastContainer"></div>
+<div id="cartModal" class="modal">
+    <div class="modal-content">
+        <h3>🛒 Coșul tău</h3>
+        <div id="cartItemsList"></div>
+        <p><strong>Total: <span id="modalTotal">0</span> MDL</strong></p>
+        <button class="close-modal" id="closeCartModal">Închide</button>
+    </div>
+</div>
 
-<td width="80%">
-    <p>Email:retailshop@email.com</p>
-    <p>Telefon: +373 60000000</p>
-</td>
-</tr>
-</table>
+<div class="container">
+    <div class="contact-wrapper" style="display: flex; gap: 40px; flex-wrap: wrap; margin: 40px 0;">
+        
+        <!-- Informații contact -->
+        <div style="flex: 1; background: white; border-radius: 28px; padding: 28px; box-shadow: 0 8px 20px rgba(0,0,0,0.05);">
+            <h2>📞 Contactează-ne</h2>
+            <p><strong>Email:</strong> retailshop@email.com</p>
+            <p><strong>Telefon:</strong> +373 68 322 272</p>
+            <p><strong>Adresă:</strong> Chișinău, MD</p>
+            <p><strong>Program:</strong> Luni – Vineri: 09:00 – 18:00</p>
+            <hr style="margin: 20px 0;">
+            <p><strong>📌 Răspundem în maxim 24 de ore!</strong></p>
+        </div>
+        
+        <!-- Formular contact cu AJAX (VARIANT 3) -->
+        <div style="flex: 1; background: white; border-radius: 28px; padding: 28px; box-shadow: 0 8px 20px rgba(0,0,0,0.05);">
+            <h3>✉️ Trimite-ne un mesaj</h3>
+            
+            <!-- Zonă pentru răspuns AJAX -->
+            <div id="contactAjaxResponse"></div>
+            
+            <!-- ID corect: contactFormAjax (NU contactForm) -->
+            <!-- Fără action și fără onsubmit - JavaScript-ul modern preia controlul -->
+            <form id="contactFormAjax">
+                <div class="form-group">
+                    <input type="text" id="contactName" name="contactName" placeholder="Numele tău *">
+                    <span id="nameError" class="error-message"></span>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" id="contactEmail" name="contactEmail" placeholder="Adresa de email *">
+                    <span id="emailError" class="error-message"></span>
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" id="contactSubject" name="contactSubject" placeholder="Subiect">
+                </div>
+                
+                <div class="form-group">
+                    <textarea id="contactMsg" name="contactMsg" rows="5" placeholder="Mesajul tău *"></textarea>
+                    <span id="msgError" class="error-message"></span>
+                </div>
+                
+                <button type="submit" class="btn-submit" id="submitContactBtn">📨 Trimite mesaj</button>
+            </form>
+        </div>
+    </div>
+</div>
 
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div class="footer-brand">
+            <div class="footer-logo"><span class="logo-ic">🛒</span><span class="logo-text"><b>Grocery</b>Market</span></div>
+            <p class="footer-desc">Magazin online cu produse de calitate, livrare rapidă.</p>
+            <div class="footer-social"><a href="#">f</a><a href="#">⌁</a></div>
+        </div>
+        <div class="footer-col"><h4>Link-uri utile</h4><ul><li><a href="despre.html">Despre noi</a></li><li><a href="produse.html">Produse</a></li></ul></div>
+        <div class="footer-col"><h4>Detalii</h4><ul><li><a href="#">Plată și livrare</a></li><li><a href="#">Termeni și condiții</a></li></ul></div>
+        <div class="footer-col"><h4>Contacte</h4><div class="footer-contact"><div><b>Telefon:</b> +373 68 322 272</div><div><b>Email:</b> info@grocerymarket.md</div></div><div class="footer-pay"><span class="pay-pill">Mastercard</span><span class="pay-pill">VISA</span></div></div>
+    </div>
+    <div class="container footer-bottom"><span>© 2026 GroceryMarket.</span><a href="#" class="back-top" id="backToTop">↑ Sus</a></div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
